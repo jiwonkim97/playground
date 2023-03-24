@@ -1,19 +1,23 @@
 import Keyboard from "@/components/Keyboard";
 import WordBox from "@/components/WordBox";
+import { WORDS } from "@/config/5letterWords";
 import { TKeyboard } from "@/types/publicTypes";
 import { Inter } from "next/font/google";
 import Head from "next/head";
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
-const ANSWER = "ZEBRA";
+const ANSWER = WORDS[Math.ceil(Math.random() * WORDS.length)];
 
 export default function Home() {
   const rowItem = [0, 1, 2, 3, 4];
   const [userInput, setUserInput] = useState(["", "", "", "", "", ""]);
   const [curCol, setCurCol] = useState(0);
   const onClickKeyboard = (key: TKeyboard) => {
-    if (userInput.slice(0, curCol).includes(ANSWER.toLowerCase())) {
+    if (
+      userInput.slice(0, curCol).includes(ANSWER.toLowerCase()) ||
+      curCol === 6
+    ) {
       return;
     }
     switch (key) {
@@ -59,6 +63,7 @@ export default function Home() {
           gap: 60,
         }}
       >
+        {curCol === 6 ? <div>ANSWER IS : {ANSWER.toUpperCase()}</div> : null}
         <div
           style={{
             display: "flex",
