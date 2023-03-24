@@ -60,7 +60,7 @@ export default function Home() {
           alignItems: "center",
           flexDirection: "column",
           height: "100vh",
-          gap: 60,
+          gap: 20,
         }}
       >
         {curCol === 6 ? (
