@@ -63,7 +63,16 @@ export default function Home() {
           gap: 60,
         }}
       >
-        {curCol === 6 ? <div>ANSWER IS : {ANSWER.toUpperCase()}</div> : null}
+        {curCol === 6 ? (
+          <div
+            style={{
+              fontFamily: "nyt-franklin",
+              fontWeight: "bold",
+            }}
+          >
+            ANSWER IS : {ANSWER.toUpperCase()}
+          </div>
+        ) : null}
         <div
           style={{
             display: "flex",
@@ -88,7 +97,13 @@ export default function Home() {
             )
           )}
         </div>
-        <div style={{ display: "flex", width: 500 }}>
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            maxWidth: 500,
+          }}
+        >
           <Keyboard
             onClick={onClickKeyboard}
             userInput={userInput.slice(0, curCol)}
