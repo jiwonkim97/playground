@@ -17,8 +17,8 @@ export default function Home() {
         style={{
           display: 'flex',
         }}>
-        <Link href='/test'>
-          <button style={{ display: 'flex', width: 200, height: 60, alignItems: 'center', justifyContent: 'center' }}>TEST PAGE</button>
+        <Link href='/canvas'>
+          <button style={{ display: 'flex', width: 200, height: 60, alignItems: 'center', justifyContent: 'center' }}>canvas</button>
         </Link>
       </div>
     </>
