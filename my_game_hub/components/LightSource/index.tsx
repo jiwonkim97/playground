@@ -14,7 +14,7 @@ export class LightSource implements ILightSource {
   constructor(canvasWidth: number, canvasHeight: number) {
     this.centerX = canvasWidth / 2;
     this.centerY = canvasHeight / 1.4;
-    this.radius = canvasWidth / 48 > 48 ? 48 : canvasWidth / 48 < 24 ? 24 : canvasWidth / 48;
+    this.radius = canvasWidth / 48 > 48 ? 48 : canvasWidth / 48 > 24 ? 24 : canvasWidth / 48;
   }
 
   drawRadialGradientBehindLightSource(ctx: CanvasRenderingContext2D) {

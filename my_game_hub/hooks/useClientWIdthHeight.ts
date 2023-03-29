@@ -15,7 +15,7 @@ export const useClientWidthHeight = (ref: RefObject<HTMLElement>) => {
 
     window.addEventListener('resize', setClientWidthHeight);
     return () => window.removeEventListener('resize', setClientWidthHeight);
-  }, []);
+  }, [ref]);
 
   return { width, height };
 };
