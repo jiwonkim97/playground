@@ -1,5 +1,5 @@
-import { ILightSource, LightSource } from '@/components/LightSource';
-import { IPoint, Point } from '@/components/Point';
+import { ILightSource, LightSource } from '@/components/StageLightingWaveAnimation/LightSource';
+import { IPoint, Point } from '@/components/StageLightingWaveAnimation/Point';
 import { useCanvas } from '@/hooks/useCanvas';
 import { RefObject } from 'react';
 

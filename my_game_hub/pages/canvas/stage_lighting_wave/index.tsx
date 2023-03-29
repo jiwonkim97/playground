@@ -2,7 +2,7 @@ import StageLightingWaveAnimation from '@/components/StageLightingWaveAnimation'
 import { useClientWidthHeight } from '@/hooks/useClientWIdthHeight';
 import { RefObject, useRef } from 'react';
 
-const UseCanvasExample = () => {
+const StageLightingWave = () => {
   const mainRef: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
   const { width: canvasWidth, height: canvasHeight } = useClientWidthHeight(mainRef);
@@ -13,4 +13,4 @@ const UseCanvasExample = () => {
   );
 };
 
-export default UseCanvasExample;
+export default StageLightingWave;

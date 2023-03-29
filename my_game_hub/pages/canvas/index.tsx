@@ -20,7 +20,9 @@ const TestPage = () => {
         <Link href='/canvas/stage_lighting_wave'>
           <S.LinkButton>stage_lighting_wave</S.LinkButton>
         </Link>
-        <S.LinkButton disabled>asdf</S.LinkButton>
+        <Link href='/canvas/interactive_gravity'>
+          <S.LinkButton>interactive_gravity</S.LinkButton>
+        </Link>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
