@@ -36,3 +36,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### Todo
+- 투두리스트도 페이지로 만들면 좋겠다
+- 무한 슬라이드 뷰를 컴포넌트로? -> npm에 올려보는것을 목표로
+- 지피티를 이용한 무언가를 만들어보면 좋지 않을까
