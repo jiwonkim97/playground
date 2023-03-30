@@ -5,6 +5,7 @@ import Link from 'next/link';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  // console.log(process.env.NEXT_PUBLIC_WORDLINK_API_KEY);
   return (
     <>
       <Head>
@@ -18,7 +19,10 @@ export default function Home() {
           display: 'flex',
         }}>
         <Link href='/canvas'>
-          <button style={{ display: 'flex', width: 200, height: 60, alignItems: 'center', justifyContent: 'center' }}>canvas</button>
+          <button style={{ display: 'flex', width: 200, height: 60, alignItems: 'center', justifyContent: 'center' }}>CANVAS</button>
+        </Link>
+        <Link href='/games'>
+          <button style={{ display: 'flex', width: 200, height: 60, alignItems: 'center', justifyContent: 'center' }}>GAMES</button>
         </Link>
       </div>
     </>
