@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import * as S from './styles';
-const TestPage = () => {
+
+const EtcPage = () => {
+  const router = useRouter();
   return (
     <div
       style={{
@@ -17,15 +20,11 @@ const TestPage = () => {
           flexWrap: 'wrap',
           justifyContent: 'center',
         }}>
-        <Link href='/canvas/stage_lighting_wave'>
-          <S.LinkButton>stage_lighting_wave</S.LinkButton>
+        <Link href={`${router.asPath}/sw_rune_checker`}>
+          <S.LinkButton>sw_rune_checker</S.LinkButton>
         </Link>
-        <Link href='/canvas/interactive_gravity'>
-          <S.LinkButton>interactive_gravity</S.LinkButton>
-        </Link>
-        <Link href='/canvas/pinterest_vertical_slide'>
-          <S.LinkButton disabled>pinterest_vertical_slide</S.LinkButton>
-        </Link>
+        <S.LinkButton disabled>asdf</S.LinkButton>
+        <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
@@ -34,4 +33,4 @@ const TestPage = () => {
   );
 };
 
-export default TestPage;
+export default EtcPage;

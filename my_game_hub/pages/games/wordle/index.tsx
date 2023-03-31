@@ -1,6 +1,7 @@
 import Keyboard from '@/components/Wordle/Keyboard';
 import WordBox from '@/components/Wordle/WordBox';
 import { WORDS } from '@/config/5letterWords';
+import { WORDLIST } from '@/config/words';
 import { TKeyboard } from '@/types/publicTypes';
 import { Inter } from 'next/font/google';
 import Head from 'next/head';
@@ -20,6 +21,7 @@ export default function Home() {
     switch (key) {
       case 'ENT':
         if (userInput[curCol].length !== 5) return;
+        if (!WORDLIST.includes(userInput[curCol])) return;
         setCurCol(cur => (cur += 1));
         return;
       case 'BS':
