@@ -21,7 +21,7 @@ const EtcPage = () => {
           justifyContent: 'center',
         }}>
         <Link href={`${router.asPath}/sw_rune_checker`}>
-          <S.LinkButton>sw_rune_checker</S.LinkButton>
+          <S.LinkButton>서머너즈워 룬 점수</S.LinkButton>
         </Link>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
