@@ -1,25 +1,25 @@
 import { RUNE_OPTION_MAX_VALUE, VALID_OPTION_BY_MOB_POSITION } from '@/config/swConfig';
-import 격노룬 from '@/public/asset/sw/격노룬.webp';
-import 결의룬 from '@/public/asset/sw/결의룬.webp';
-import 고양룬 from '@/public/asset/sw/고양룬.webp';
-import 근성룬 from '@/public/asset/sw/근성룬.webp';
-import 맹공룬 from '@/public/asset/sw/맹공룬.webp';
-import 명중룬 from '@/public/asset/sw/명중룬.webp';
-import 반격룬 from '@/public/asset/sw/반격룬.webp';
-import 보호룬 from '@/public/asset/sw/보호룬.webp';
-import 수호룬 from '@/public/asset/sw/수호룬.webp';
-import 신속룬 from '@/public/asset/sw/신속룬.webp';
-import 응보룬 from '@/public/asset/sw/응보룬.webp';
-import 의지룬 from '@/public/asset/sw/의지룬.webp';
-import 인내룬 from '@/public/asset/sw/인내룬.webp';
-import 절망룬 from '@/public/asset/sw/절망룬.webp';
-import 집중룬 from '@/public/asset/sw/집중룬.webp';
-import 칼날룬 from '@/public/asset/sw/칼날룬.webp';
-import 투지룬 from '@/public/asset/sw/투지룬.webp';
-import 파괴룬 from '@/public/asset/sw/파괴룬.webp';
-import 폭주룬 from '@/public/asset/sw/폭주룬.webp';
-import 활력룬 from '@/public/asset/sw/활력룬.webp';
-import 흡혈룬 from '@/public/asset/sw/흡혈룬.webp';
+import 명중룬 from '@/public/asset/sw/AccuracyRune.webp';
+import 칼날룬 from '@/public/asset/sw/BladeRune.webp';
+import 절망룬 from '@/public/asset/sw/DespairRune.webp';
+import 파괴룬 from '@/public/asset/sw/DestroyRune.webp';
+import 결의룬 from '@/public/asset/sw/DeterminationRune.webp';
+import 인내룬 from '@/public/asset/sw/EndureRune.webp';
+import 활력룬 from '@/public/asset/sw/EnergyRune.webp';
+import 고양룬 from '@/public/asset/sw/EnhanceRune.webp';
+import 맹공룬 from '@/public/asset/sw/FatalRune.webp';
+import 투지룬 from '@/public/asset/sw/FightRune.webp';
+import 집중룬 from '@/public/asset/sw/FocusRune.webp';
+import 수호룬 from '@/public/asset/sw/GuardRune.webp';
+import 응보룬 from '@/public/asset/sw/NemesisRune.webp';
+import 격노룬 from '@/public/asset/sw/RageRune.webp';
+import 반격룬 from '@/public/asset/sw/RevengeRune.webp';
+import 보호룬 from '@/public/asset/sw/ShieldRune.webp';
+import 신속룬 from '@/public/asset/sw/SwiftRune.webp';
+import 근성룬 from '@/public/asset/sw/ToleranceRune.webp';
+import 흡혈룬 from '@/public/asset/sw/VampireRune.webp';
+import 폭주룬 from '@/public/asset/sw/ViolentRune.webp';
+import 의지룬 from '@/public/asset/sw/WillRune.webp';
 import { IRuneDetail, TMobPosition, TRuneType } from '@/types/summonersWarTypes';
 
 const getRuneImage = (type: TRuneType) => {
@@ -173,6 +173,23 @@ const getRuneScore = (rune: IRuneDetail) => {
   const positions: Array<TMobPosition> = ['딜러', '탱커', '서포터'];
 
   positions.map(position => {
+    /** 접두옵션이 메인옵션에 들어가는지? */
+    VALID_OPTION_BY_MOB_POSITION[position].main.map(validOption => {
+      if (!rune.preOption) return;
+      if (rune.preOption.optionName !== validOption) return;
+
+      score[position] += (rune.preOption.value / RUNE_OPTION_MAX_VALUE[validOption]) * MAIN_OPTION_WEIGHT;
+    });
+
+    /** 접두옵션이 서브옵션에 들어가는지? */
+    VALID_OPTION_BY_MOB_POSITION[position].sub.map(validOption => {
+      if (!rune.preOption) return;
+      if (rune.preOption.optionName !== validOption) return;
+
+      score[position] += (rune.preOption.value / RUNE_OPTION_MAX_VALUE[validOption]) * SUB_OPTION_WEIGHT;
+    });
+
+    /** 부옵션이 메인옵션에 들어가는지? */
     VALID_OPTION_BY_MOB_POSITION[position].main.map(validOption => {
       if (!rune.subOption) return;
 
@@ -182,6 +199,7 @@ const getRuneScore = (rune: IRuneDetail) => {
       }
     });
 
+    /** 부옵션이 서브옵션에 들어가는지? */
     VALID_OPTION_BY_MOB_POSITION[position].sub.map(validOption => {
       if (!rune.subOption) return;
 
