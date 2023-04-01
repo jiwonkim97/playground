@@ -1,6 +1,6 @@
 import { TMobPosition, TRuneGrade, TRuneIndex, TRuneOption, TRuneStar, TRuneType, TRuneUpgrade } from '@/types/summonersWarTypes';
 
-export const SW_MAIN_RUNE_MIN_SCORE = 30;
+export const SW_MAIN_RUNE_MIN_SCORE = 5;
 export const SW_SUB_RUNE_MIN_SCORE = SW_MAIN_RUNE_MIN_SCORE * 1.2;
 export const RUNE: Array<TRuneType> = [
   '활력',
