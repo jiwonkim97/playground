@@ -65,7 +65,7 @@ const SWRuneChecker = () => {
         };
       }
 
-      const newRune = new Rune(selectedRune, runeGrade, runeStar, selectedRuneNumber, runeUpgrade, runeMainOption, runePreOption, runeOptions);
+      const newRune = new Rune(selectedRune, runeGrade, runeStar, selectedRuneNumber, runeUpgrade, runeMainOption, runePreOption, [...runeOptions]);
 
       setRegisteredRunes(cur => [...cur, newRune]);
     }
