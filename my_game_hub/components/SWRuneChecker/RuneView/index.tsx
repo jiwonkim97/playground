@@ -3,14 +3,13 @@ import { IRuneDetail } from '@/types/summonersWarTypes';
 import swUtils from '@/utils/swUtils';
 import { MouseEvent, MouseEventHandler, useState } from 'react';
 
-const RuneView = ({ data, onClick }: { data: IRuneDetail; onClick: MouseEventHandler<HTMLDivElement> }) => {
+const RuneView = ({ data, onClick, onClickDelete }: { data: IRuneDetail; onClick: MouseEventHandler<HTMLDivElement>; onClickDelete: Function }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { position, score } = swUtils.getRuneScore(data);
   const onClickDiv = (e: MouseEvent<HTMLDivElement>) => {
     setIsOpen(cur => !cur);
     onClick(e);
   };
-  const onClickDelete = () => {};
   return (
     <div onClick={onClickDiv} style={{ outline: 'solid 1px #000', display: 'flex', flexDirection: 'column', maxWidth: 300, width: '100%', padding: 5 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -40,7 +39,7 @@ const RuneView = ({ data, onClick }: { data: IRuneDetail; onClick: MouseEventHan
       </div>
       <Margin H={10} />
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <button onClick={onClickDelete} style={{ color: '#f00', height: 20 }}>
+        <button onClick={() => onClickDelete(data?.uuid)} style={{ color: '#f00', height: 20 }}>
           제거
         </button>
       </div>

@@ -105,6 +105,7 @@ export interface IRuneDetail {
   mainOption: TRuneOption;
   preOption?: TRuneOptionDetail;
   subOption?: TRuneSubOptionDetail[]; // 부옵션
+  uuid: string;
 }
 
 export type TMobPosition = '딜러' | '탱커' | '서포터';

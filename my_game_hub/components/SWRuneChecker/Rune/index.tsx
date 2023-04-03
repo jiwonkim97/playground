@@ -9,6 +9,7 @@ import {
   TRuneType,
   TRuneUpgrade,
 } from '@/types/summonersWarTypes';
+import { v1 } from 'uuid';
 
 export class Rune implements IRuneDetail {
   type: TRuneType;
@@ -19,6 +20,7 @@ export class Rune implements IRuneDetail {
   mainOption: TRuneOption;
   preOption?: TRuneOptionDetail;
   subOption?: TRuneSubOptionDetail[] | undefined;
+  uuid: string;
   constructor(
     type: TRuneType,
     grade: TRuneGrade,
@@ -37,5 +39,6 @@ export class Rune implements IRuneDetail {
     this.mainOption = mainOption;
     this.preOption = preOption;
     this.subOption = subOption;
+    this.uuid = v1();
   }
 }

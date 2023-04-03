@@ -73,6 +73,9 @@ const SWRuneChecker = () => {
   const onClickBackup = () => {
     setCookie('sw_rune', registeredRunes);
   };
+  const onClickDelete = (uuid: string) => {
+    console.log(uuid);
+  };
   useEffect(() => {
     getCookie('sw_rune').then(res => (res ? setRegisteredRunes(res) : null));
   }, []);
@@ -215,7 +218,7 @@ const SWRuneChecker = () => {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {registeredRunes.map((item, idx) => {
-            return <RuneView key={idx} onClick={() => console.log(item)} data={item} />;
+            return <RuneView key={idx} onClick={() => console.log(item)} data={item} onClickDelete={onClickDelete} />;
           })}
         </div>
       </div>
