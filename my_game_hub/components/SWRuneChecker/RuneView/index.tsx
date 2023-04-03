@@ -10,6 +10,7 @@ const RuneView = ({ data, onClick }: { data: IRuneDetail; onClick: MouseEventHan
     setIsOpen(cur => !cur);
     onClick(e);
   };
+  const onClickDelete = () => {};
   return (
     <div onClick={onClickDiv} style={{ outline: 'solid 1px #000', display: 'flex', flexDirection: 'column', maxWidth: 300, width: '100%', padding: 5 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -36,6 +37,12 @@ const RuneView = ({ data, onClick }: { data: IRuneDetail; onClick: MouseEventHan
             </div>
           ))}
         </div>
+      </div>
+      <Margin H={10} />
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <button onClick={onClickDelete} style={{ color: '#f00', height: 20 }}>
+          제거
+        </button>
       </div>
     </div>
   );
