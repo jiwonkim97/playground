@@ -23,7 +23,9 @@ const EtcPage = () => {
         <Link href={`${router.asPath}/sw_rune_checker`}>
           <S.LinkButton>서머너즈워 룬 점수</S.LinkButton>
         </Link>
-        <S.LinkButton disabled>asdf</S.LinkButton>
+        <Link href={`${router.asPath}/etc`}>
+          <S.LinkButton>잡다</S.LinkButton>
+        </Link>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
