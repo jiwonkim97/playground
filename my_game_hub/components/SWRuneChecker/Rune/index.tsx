@@ -38,7 +38,7 @@ export class Rune implements IRuneDetail {
     this.upgrade = upgrade;
     this.mainOption = mainOption;
     this.preOption = preOption;
-    this.subOption = subOption;
+    this.subOption = subOption ? [...subOption] : undefined;
     this.uuid = v1();
   }
 }

@@ -150,11 +150,12 @@ const getRuneScore = (rune: IRuneDetail) => {
   /**
    * 전설룬 보너스
    */
-  const legendaryGradeBonus = 1;
+  const legendaryGradeBonus = 0;
   /**
-   * 폭,의,신 보너스
+   * 폭,의,신,격 보너스
    */
   const specialRuneTypeBonus = 1;
+  const specialRuneTypes: TRuneType[] = ['폭주','의지','신속','격노']
 
   let bonusScore = 0;
 
@@ -162,7 +163,7 @@ const getRuneScore = (rune: IRuneDetail) => {
     bonusScore += legendaryGradeBonus;
   }
 
-  if (rune.type === '폭주' || rune.type === '의지' || rune.type === '신속') {
+  if (specialRuneTypes.includes(rune.type)) {
     bonusScore += specialRuneTypeBonus;
   }
 
@@ -185,6 +186,7 @@ const getRuneScore = (rune: IRuneDetail) => {
     VALID_OPTION_BY_MOB_POSITION[position].sub.map(validOption => {
       if (!rune.preOption) return;
       if (rune.preOption.optionName !== validOption) return;
+
 
       score[position] += (rune.preOption.value / RUNE_OPTION_MAX_VALUE[validOption]) * SUB_OPTION_WEIGHT;
     });
@@ -210,9 +212,13 @@ const getRuneScore = (rune: IRuneDetail) => {
     });
   });
 
-  const ret = Object.entries(score).sort((a, b) => b[1] - a[1])[0];
+  // const ret = Object.entries(score).sort((a, b) => b[1] - a[1])[0];s
 
-  return { position: ret[0], score: (ret[1] + bonusScore).toFixed(3) };
+  // return { position: ret[0], score: (ret[1] + bonusScore).toFixed(3) };
+  score.딜러 += bonusScore
+  score.서포터 += bonusScore
+  score.탱커 += bonusScore
+  return score
 };
 
 const getRuneEffect = (type: TRuneType) => {

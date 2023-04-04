@@ -1,11 +1,12 @@
 import Margin from '@/components/Global/Margin';
-import { IRuneDetail } from '@/types/summonersWarTypes';
+import { IRuneDetail, TMobPosition } from '@/types/summonersWarTypes';
 import swUtils from '@/utils/swUtils';
 import { MouseEvent, MouseEventHandler, useState } from 'react';
 
 const RuneView = ({ data, onClick, onClickDelete }: { data: IRuneDetail; onClick: MouseEventHandler<HTMLDivElement>; onClickDelete: Function }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { position, score } = swUtils.getRuneScore(data);
+  // const { position, score } = swUtils.getRuneScore(data);
+  const score = swUtils.getRuneScore(data)
   const onClickDiv = (e: MouseEvent<HTMLDivElement>) => {
     setIsOpen(cur => !cur);
     onClick(e);
@@ -15,8 +16,23 @@ const RuneView = ({ data, onClick, onClickDelete }: { data: IRuneDetail; onClick
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         {`${data.type}(${data.index}) ${data.grade}`}
         <Margin W={5} />
-        {position}
-        {score}
+        {
+          Object.entries(score).map((item, idx) => {
+            return (
+              <div key={idx} style={{backgroundColor: swUtils.getUsingMobType(data?.type).includes(item[0] as TMobPosition) ? '#fcc' : '#fff'}}>
+                <span>
+                  {item[0]}
+                </span>
+                <span>
+                  {item[1].toFixed(2)}
+                </span>
+                <Margin W={5} />
+                </div>
+            )
+          })
+        }
+        {/* {position} */}
+        {/* {score} */}
       </div>
       <div style={{ display: isOpen ? 'flex' : 'none' }}>
         <div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'space-between' }}>
