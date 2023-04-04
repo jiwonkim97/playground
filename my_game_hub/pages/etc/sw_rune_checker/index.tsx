@@ -57,7 +57,7 @@ const SWRuneChecker = () => {
       runeOptions !== null
     ) {
       let runePreOption = undefined;
-      console.log(runePreOptionType, runePreOptionValue);
+
       if (runePreOptionType && runePreOptionValue) {
         runePreOption = {
           optionName: runePreOptionType,
@@ -70,12 +70,24 @@ const SWRuneChecker = () => {
       setRegisteredRunes(cur => [...cur, newRune]);
     }
   };
+
   const onClickBackup = () => {
     setCookie('sw_rune', registeredRunes);
   };
+
   const onClickDelete = (uuid: string) => {
-    console.log(uuid);
+    setRegisteredRunes(cur => {
+      const target = cur.filter(item => item.uuid === uuid)[0];
+      const targetIdx = cur.indexOf(target);
+
+      return [...cur.slice(0, targetIdx), ...cur.slice(targetIdx + 1, cur.length)];
+    });
   };
+
+  useEffect(() => {
+    setCookie('sw_rune', registeredRunes);
+  }, [registeredRunes]);
+
   useEffect(() => {
     getCookie('sw_rune').then(res => (res ? setRegisteredRunes(res) : null));
   }, []);
