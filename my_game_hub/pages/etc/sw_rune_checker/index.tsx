@@ -8,7 +8,7 @@ import { getCookie, setCookie } from '@/utils/cookie';
 import swUtils from '@/utils/swUtils';
 import { useEffect, useState } from 'react';
 
-const AUTO_MODE:TRuneIndex = 1
+const AUTO_MODE: TRuneIndex = 1;
 
 const SWRuneChecker = () => {
   const [selectedRune, setSelectedRune] = useState<TRuneType | null>(null);
@@ -29,22 +29,22 @@ const SWRuneChecker = () => {
   };
 
   const onClickRuneNumber = (idx: TRuneIndex) => {
-    setSelectedRuneNumber(idx)
+    setSelectedRuneNumber(idx);
     switch (idx) {
       case 1:
-        setRuneMainOption('공격력')
+        setRuneMainOption('공격력');
         break;
       case 3:
-        setRuneMainOption('방어력')
+        setRuneMainOption('방어력');
         break;
       case 5:
-        setRuneMainOption('체력')
+        setRuneMainOption('체력');
         break;
     }
-  }
+  };
   useEffect(() => {
-    console.log(runeMainOption)
-  },[runeMainOption])
+    console.log(runeMainOption);
+  }, [runeMainOption]);
 
   const onChangeRuneOption = (option: TRuneOption, value: number) => {
     setRuneOptions(cur => {
@@ -55,7 +55,7 @@ const SWRuneChecker = () => {
         const newTarget: TRuneSubOptionDetail = {
           optionName: target.optionName,
           value: value,
-        }
+        };
 
         if (isNaN(value)) {
           return [...cur.slice(0, targetIdx), ...cur.slice(targetIdx + 1, cur.length)];
@@ -73,13 +73,13 @@ const SWRuneChecker = () => {
   };
 
   const onClickRegister = () => {
-    console.log(selectedRune)
-    console.log(runeGrade)
-    console.log(runeStar)
-    console.log(selectedRuneNumber)
-    console.log(runeUpgrade)
-    console.log(runeMainOption)
-    console.log(runeOptions)
+    console.log(selectedRune);
+    console.log(runeGrade);
+    console.log(runeStar);
+    console.log(selectedRuneNumber);
+    console.log(runeUpgrade);
+    console.log(runeMainOption);
+    console.log(runeOptions);
     if (
       selectedRune !== null &&
       runeGrade !== null &&
@@ -98,21 +98,21 @@ const SWRuneChecker = () => {
         };
       }
 
-      const runeOptionsCopy = [...runeOptions]
+      const runeOptionsCopy = [...runeOptions];
 
-      const newRune = new Rune(selectedRune, runeGrade, runeStar, selectedRuneNumber, runeUpgrade, runeMainOption, runePreOption,runeOptionsCopy);
+      const newRune = new Rune(selectedRune, runeGrade, runeStar, selectedRuneNumber, runeUpgrade, runeMainOption, runePreOption, runeOptionsCopy);
 
       setRegisteredRunes(cur => [...cur, newRune]);
 
-      setSelectedRune(null)
-      setSelectedRuneNumber(null)
-      setRuneGrade(null)
-      setRuneStar(null)
+      setSelectedRune(null);
+      setSelectedRuneNumber(null);
+      setRuneGrade(null);
+      setRuneStar(null);
       setRuneUpgrade(null);
-      setRuneMainOption(null)
-      setRunePreOptionType(undefined)
-      setRunePreOptionValue(undefined)
-      setRuneOptions([])
+      setRuneMainOption(null);
+      setRunePreOptionType(undefined);
+      setRunePreOptionValue(undefined);
+      setRuneOptions([]);
     }
   };
 
@@ -138,14 +138,14 @@ const SWRuneChecker = () => {
   }, []);
 
   useEffect(() => {
-    if (AUTO_MODE === 0) return
+    // if (AUTO_MODE === 0) return
 
-    setSelectedRuneNumber(AUTO_MODE)
-    onClickRuneNumber(AUTO_MODE)
-    setRuneGrade('전설')
-    setRuneUpgrade(15)
-    setRuneStar(6)
-  }, [selectedRune])
+    setSelectedRuneNumber(AUTO_MODE);
+    onClickRuneNumber(AUTO_MODE);
+    setRuneGrade('전설');
+    setRuneUpgrade(15);
+    setRuneStar(6);
+  }, [selectedRune]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -171,7 +171,13 @@ const SWRuneChecker = () => {
                       <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <span>{item}</span>
                         <Margin W={15} />
-                        <input type='radio' checked={item === selectedRuneNumber} style={{ width: 20, height: 20 }} name='rune_index' onChange={() => onClickRuneNumber(item)} />
+                        <input
+                          type='radio'
+                          checked={item === selectedRuneNumber}
+                          style={{ width: 20, height: 20 }}
+                          name='rune_index'
+                          onChange={() => onClickRuneNumber(item)}
+                        />
                       </div>
                     );
                   })}
