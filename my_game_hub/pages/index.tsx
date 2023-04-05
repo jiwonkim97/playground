@@ -24,6 +24,9 @@ export default function Home() {
         <Link href='/games'>
           <button style={{ display: 'flex', width: 200, height: 60, alignItems: 'center', justifyContent: 'center' }}>GAMES</button>
         </Link>
+        <Link href='/clones'>
+          <button style={{ display: 'flex', width: 200, height: 60, alignItems: 'center', justifyContent: 'center' }}>CLONE</button>
+        </Link>
         <Link href='/etc'>
           <button style={{ display: 'flex', width: 200, height: 60, alignItems: 'center', justifyContent: 'center' }}>ETC</button>
         </Link>
