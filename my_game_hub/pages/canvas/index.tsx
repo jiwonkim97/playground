@@ -27,7 +27,7 @@ const TestPage = () => {
           <S.LinkButton disabled>pinterest_vertical_slide</S.LinkButton>
         </Link>
         <Link href='/canvas/solar_system'>
-          <S.LinkButton>solar_system</S.LinkButton>
+          <S.LinkButton disabled>solar_system</S.LinkButton>
         </Link>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>

@@ -20,6 +20,7 @@ const Cursor = ({ x, y }: CursorProps) => {
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       style={{
+        zIndex: 1e9,
         position: 'absolute',
         top: y,
         left: x,
@@ -32,6 +33,8 @@ const Cursor = ({ x, y }: CursorProps) => {
         display: 'inline-block',
         pointerEvents: 'none', // 아래에 있는 이벤트를 발생시킨다..? 커서의 클릭이벤트가 없어진다?
         userSelect: 'none',
+        backgroundColor: '#fff',
+        mixBlendMode: 'difference',
       }}
     />
   );
