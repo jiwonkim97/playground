@@ -29,7 +29,9 @@ const TestPage = () => {
         <Link href='/canvas/solar_system'>
           <S.LinkButton disabled>solar_system</S.LinkButton>
         </Link>
-        <S.LinkButton disabled>asdf</S.LinkButton>
+        <Link href='/canvas/radar_chart'>
+          <S.LinkButton>radar_chart</S.LinkButton>
+        </Link>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
       </div>
