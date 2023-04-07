@@ -3,6 +3,13 @@ import type { AppProps } from 'next/app';
 import { ReactNode } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
+  // const [x, setX] = useState(0);
+  // const [y, setY] = useState(0);
+
+  // const handleMouseMove = (e: MouseEvent) => {
+  //   setX(e.clientX);
+  //   setY(e.clientY);
+  // };
   return (
     <div
       style={{

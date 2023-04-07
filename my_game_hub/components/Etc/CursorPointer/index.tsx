@@ -1,10 +1,12 @@
+import { colors } from '@/config/globalColors';
 import { useState } from 'react';
 
 interface CursorProps {
   x: number;
   y: number;
+  color?: string;
 }
-const Cursor = ({ x, y }: CursorProps) => {
+const Cursor = ({ x, y, color = colors.GRAY_BLACK }: CursorProps) => {
   const [mouseCursorWidth, setMouseCursorWidth] = useState(32);
 
   const onMouseDown = () => {
@@ -33,7 +35,7 @@ const Cursor = ({ x, y }: CursorProps) => {
         display: 'inline-block',
         pointerEvents: 'none', // 아래에 있는 이벤트를 발생시킨다..? 커서의 클릭이벤트가 없어진다?
         userSelect: 'none',
-        backgroundColor: '#fff',
+        backgroundColor: color,
         mixBlendMode: 'difference',
       }}
     />

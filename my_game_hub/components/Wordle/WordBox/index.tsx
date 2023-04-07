@@ -1,76 +1,64 @@
-import { colors } from "@/config/globalColors";
+import { WORDLE_COLORS } from '@/config/globalColors';
 
-const WordBox = ({
-  answer,
-  guess,
-  index,
-  showAnswer = false,
-}: {
-  answer: string;
-  guess: string;
-  index: number;
-  showAnswer?: boolean;
-}) => {
+const WordBox = ({ answer, guess, index, showAnswer = false }: { answer: string; guess: string; index: number; showAnswer?: boolean }) => {
   const getBgColor = () => {
     if (showAnswer) {
       if (answer.toLowerCase()[index] === guess.toLowerCase()) {
-        return colors.CORRECT;
+        return WORDLE_COLORS.CORRECT;
       }
       if (answer.toLowerCase().includes(guess.toLowerCase())) {
-        return colors.PRESENT;
+        return WORDLE_COLORS.PRESENT;
       }
-      return colors.ABSENT;
+      return WORDLE_COLORS.ABSENT;
     } else {
-      return "transparent";
+      return 'transparent';
     }
   };
   const getBorder = () => {
     if (showAnswer) {
       if (answer.toLowerCase()[index] === guess.toLowerCase()) {
-        return `2px solid ${colors.CORRECT}`;
+        return `2px solid ${WORDLE_COLORS.CORRECT}`;
       }
       if (answer.toLowerCase().includes(guess.toLowerCase())) {
-        return `2px solid ${colors.PRESENT}`;
+        return `2px solid ${WORDLE_COLORS.PRESENT}`;
       }
-      return `2px solid ${colors.ABSENT}`;
+      return `2px solid ${WORDLE_COLORS.ABSENT}`;
     } else {
-      if (guess === "") {
-        return "2px solid #d3d6da";
+      if (guess === '') {
+        return '2px solid #d3d6da';
       } else {
-        return "2px solid #878a8c";
+        return '2px solid #878a8c';
       }
     }
   };
   const getTextColor = () => {
     if (showAnswer) {
-      return colors.WHITE;
+      return WORDLE_COLORS.WHITE;
     } else {
-      return colors.BLACK;
+      return WORDLE_COLORS.BLACK;
     }
   };
   return (
     <div
       style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         width: 58,
         height: 58,
         backgroundColor: getBgColor(),
         border: getBorder(),
-        transition: "all ease .3s",
-      }}
-    >
+        transition: 'all ease .3s',
+      }}>
       <span
         style={{
-          fontFamily: "nyt-franklin",
-          fontWeight: "bold",
-          fontSize: "2rem",
-          lineHeight: "58px",
+          fontFamily: 'nyt-franklin',
+          fontWeight: 'bold',
+          fontSize: '2rem',
+          lineHeight: '58px',
           color: getTextColor(),
-          transition: "all ease .3s",
-        }}
-      >
+          transition: 'all ease .3s',
+        }}>
         {guess.toUpperCase()}
       </span>
     </div>

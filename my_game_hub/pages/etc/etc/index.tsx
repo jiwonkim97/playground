@@ -1,4 +1,4 @@
-import AnimationButton from '@/components/Etc/AnimationButton1';
+import AnimationButton from '@/components/Etc/AnimationButton';
 import AnimationButtons from '@/components/Etc/AnimationButtons';
 import Cursor from '@/components/Etc/CursorPointer';
 import { MouseEvent, useState } from 'react';

@@ -1,4 +1,4 @@
-import { colors } from "@/config/globalColors";
+import { WORDLE_COLORS } from "@/config/globalColors";
 import { TKeyboard } from "@/types/publicTypes";
 
 const KeyBox = ({
@@ -13,25 +13,25 @@ const KeyBox = ({
   const getBgColor = () => {
     switch (status) {
       case "CORRECT":
-        return colors.CORRECT;
+        return WORDLE_COLORS.CORRECT;
       case "PRESENT":
-        return colors.PRESENT;
+        return WORDLE_COLORS.PRESENT;
       case "ABSENT":
-        return colors.ABSENT;
+        return WORDLE_COLORS.ABSENT;
       case "NONE":
-        return colors.GRAY4;
+        return WORDLE_COLORS.GRAY4;
     }
   };
   const getTextColor = () => {
     switch (status) {
       case "CORRECT":
-        return colors.WHITE;
+        return WORDLE_COLORS.WHITE;
       case "PRESENT":
-        return colors.WHITE;
+        return WORDLE_COLORS.WHITE;
       case "ABSENT":
-        return colors.WHITE;
+        return WORDLE_COLORS.WHITE;
       case "NONE":
-        return colors.BLACK;
+        return WORDLE_COLORS.BLACK;
     }
   };
   return (

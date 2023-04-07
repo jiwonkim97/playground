@@ -5,9 +5,11 @@ import { MouseEventHandler, useState } from 'react';
  * 메인 네비게이션 버튼 클론코딩
  */
 interface AnimationButtonProps {
+  color1?: string;
+  color2?: string;
   onClick: MouseEventHandler<HTMLDivElement>;
 }
-const AnimationButton = ({ onClick }: AnimationButtonProps) => {
+const AnimationButton = ({ onClick, color1 = '#f4efe9', color2 = '#544c3f' }: AnimationButtonProps) => {
   const [isHover, setIsHover] = useState(false);
   const onMouseEnter = () => {
     setIsHover(true);
@@ -34,7 +36,7 @@ const AnimationButton = ({ onClick }: AnimationButtonProps) => {
         <div
           className='Welcome_originalBg'
           style={{
-            backgroundColor: '#f4efe9',
+            backgroundColor: color1,
             borderRadius: '100%',
             display: 'block',
             height: '200%',
@@ -49,7 +51,7 @@ const AnimationButton = ({ onClick }: AnimationButtonProps) => {
         <div
           className='Welcome_hiddenBg'
           style={{
-            backgroundColor: '#544c3f',
+            backgroundColor: color2,
             borderRadius: '100%',
             display: 'block',
             height: '200%',
