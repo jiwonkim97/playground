@@ -1,55 +1,20 @@
-import GoogleMapReact from "google-map-react";
-import { Inter } from "next/font/google";
-import Head from "next/head";
+import GoogleMap from '@/component/geolocation/map';
+import Marker from '@/component/geolocation/marker';
+import {Inter} from 'next/font/google';
+import Head from 'next/head';
+import {useState} from 'react';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({subsets: ['latin']});
+
+export interface MarkerProps {
+  position: {lat: number; lng: number};
+  title: string;
+}
 
 export default function Home() {
-  // const mapElement = useRef(null);
+  const [map, setMap] = useState<google.maps.Map | null>(null);
+  const locations: Array<MarkerProps> = [{position: {lat: 37.50098, lng: 127.03623}, title: '패스트파이브 역삼 3호점'}];
 
-  // // 컴포넌트가 마운트될 때, 수동으로 스크립트를 넣어줍니다.
-  // // ﻿이는 script가 실행되기 이전에 window.initMap이 먼저 선언되어야 하기 때문입니다.
-  // const loadScript = useCallback((url: string) => {
-  //   const firstScript = window.document.getElementsByTagName("script")[0];
-  //   const newScript = window.document.createElement("script");
-  //   newScript.src = url;
-  //   newScript.async = true;
-  //   newScript.defer = true;
-  //   firstScript?.parentNode?.insertBefore(newScript, firstScript);
-  // }, []);
-
-  // // script에서 google map api를 가져온 후에 실행될 callback 함수
-  // const initMap = useCallback(() => {
-  //   const { google } = window;
-  //   if (!mapElement.current || !google) return;
-
-  //   const location = { lat: 37.5656, lng: 126.9769 };
-  //   const map = new google.maps.Map(mapElement.current, {
-  //     zoom: 17,
-  //     center: location,
-  //   });
-  //   new google.maps.Marker({
-  //     position: location,
-  //     map,
-  //   });
-  // }, []);
-
-  // useEffect(() => {
-  //   const script = window.document.getElementsByTagName("script")[0];
-  //   const includeCheck = script.src.startsWith(
-  //     "https://maps.googleapis.com/maps/api"
-  //   );
-
-  //   // script 중복 호출 방지
-  //   if (includeCheck) return initMap();
-
-  //   window.initMap = initMap;
-  //   loadScript(
-  //     `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY}&callback=initMap&language=en`
-  //   );
-  // }, [initMap, loadScript]);
-
-  const cordinates = { lat: 0, lng: 0 };
   return (
     <>
       <Head>
@@ -58,19 +23,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div style={{ display: "flex", flex: 1, width: "100%" }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{
-            key: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY ?? "",
-          }}
-          defaultCenter={cordinates}
-          center={cordinates}
-          defaultZoom={14}
-          margin={[50, 50, 50, 50]}
-          // options={""}
-          // onChange={""}
-          // onChildClick={""}
-        ></GoogleMapReact>
+      <div style={{height: '100vh', width: '100%'}}>
+        <div id="map" style={{width: '100%', height: '100vh'}}>
+          <GoogleMap map={map} setMap={setMap} />
+          {map ? locations.map((item, idx) => <Marker key={idx} position={item.position} map={map} title={item.title} onClick={console.log} />) : null}
+        </div>
       </div>
     </>
   );
