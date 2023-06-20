@@ -20,7 +20,9 @@ const GamesPage = () => {
         <Link href='/games/wordle'>
           <S.LinkButton>wordle</S.LinkButton>
         </Link>
-        <S.LinkButton disabled>asdf</S.LinkButton>
+        <Link href='/games/chess'>
+          <S.LinkButton>chess</S.LinkButton>
+        </Link>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>

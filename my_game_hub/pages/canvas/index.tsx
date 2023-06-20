@@ -32,7 +32,9 @@ const TestPage = () => {
         <Link href='/canvas/radar_chart'>
           <S.LinkButton>radar_chart</S.LinkButton>
         </Link>
-        <S.LinkButton disabled>asdf</S.LinkButton>
+        <Link href='/canvas/three'>
+          <S.LinkButton>three</S.LinkButton>
+        </Link>
         <S.LinkButton disabled>asdf</S.LinkButton>
       </div>
     </div>

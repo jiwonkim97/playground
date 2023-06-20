@@ -24,11 +24,13 @@
     "react": "18.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
+    "three": "^0.153.0",
     "typescript": "5.0.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/mysql": "^2.15.21",
+    "@types/three": "^0.152.1",
     "@types/uuid": "^9.0.1"
   }
 }
