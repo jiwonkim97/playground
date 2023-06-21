@@ -1,5 +1,6 @@
 import { ChessFileType, ChessRankType } from '@/types/chessTypes';
 import { ReactNode } from 'react';
+import * as S from './styles';
 
 interface SquareProps {
   file: ChessFileType;
@@ -8,17 +9,9 @@ interface SquareProps {
 }
 const Square = ({ file, rank, children }: SquareProps) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: (file.charCodeAt(0) + parseInt(rank)) % 2 === 0 ? '#FFF' : '#000',
-        width: 100,
-        height: 100,
-      }}>
+    <S.Square file={file} rank={rank}>
       {children}
-    </div>
+    </S.Square>
   );
 };
 
