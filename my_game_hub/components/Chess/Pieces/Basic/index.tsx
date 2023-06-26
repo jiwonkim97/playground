@@ -27,9 +27,9 @@ const BasePiece = ({ color, blackImage, whiteImage, type, position }: BasePieceP
   return (
     <div style={{ padding: 0, position: 'relative' }} onClick={onClick}>
       {color === 'BLACK' ? (
-        <Image src={blackImage} alt={`chess-${type.toLowerCase()}-black`} style={{ width: '100%', height: '100%' }} />
+        <Image src={blackImage} alt={`chess-${type.toLowerCase()}-black`} priority style={{ width: '100%', height: '100%' }} />
       ) : (
-        <Image src={whiteImage} alt={`chess-${type.toLowerCase()}-white`} style={{ width: '100%', height: '100%' }} />
+        <Image src={whiteImage} alt={`chess-${type.toLowerCase()}-white`} priority style={{ width: '100%', height: '100%' }} />
       )}
     </div>
   );
