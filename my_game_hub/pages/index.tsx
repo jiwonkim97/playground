@@ -17,6 +17,9 @@ export default function Home() {
       <div
         style={{
           display: 'flex',
+          gap: 5,
+          flexWrap: 'wrap',
+          justifyContent: 'center',
         }}>
         <Link href='/canvas'>
           <button style={{ display: 'flex', width: 200, height: 60, alignItems: 'center', justifyContent: 'center' }}>CANVAS</button>
