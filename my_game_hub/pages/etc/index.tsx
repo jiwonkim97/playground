@@ -29,7 +29,9 @@ const EtcPage = () => {
         <Link href={`${router.asPath}/etc`}>
           <S.LinkButton>잡다</S.LinkButton>
         </Link>
-        <S.LinkButton disabled>asdf</S.LinkButton>
+        <Link href={`${router.asPath}/webview`}>
+          <S.LinkButton>웹뷰 카메라 테스트</S.LinkButton>
+        </Link>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
         <S.LinkButton disabled>asdf</S.LinkButton>
